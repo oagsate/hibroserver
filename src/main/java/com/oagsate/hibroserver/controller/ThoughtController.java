@@ -34,4 +34,14 @@ public class ThoughtController {
         thoughtService.save(param);
         return r;
     }
+
+    @DeleteMapping
+    public R delete(@RequestParam int id) {
+        boolean res = thoughtService.removeById(id);
+        R r = new R();
+        if (!res) {
+            r.setCode(2);
+        }
+        return r;
+    }
 }
