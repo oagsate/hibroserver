@@ -32,7 +32,7 @@ public class AuthController {
         user.setLastTime(new Date().toString());
         userService.updateById(user);
         session.setAttribute("user", user);
-        r.setCode(0);
+        r.setData(user);
         return r;
     }
 
