@@ -24,6 +24,11 @@ public class ThoughtController {
         return new R(0, thoughtService.list());
     }
 
+    @GetMapping("/getByUid/{uid}")
+    public R getByUid(@PathVariable int uid) {
+        return new R(0, thoughtService.getByUid(uid));
+    }
+
     @PostMapping
     public R register(@RequestBody Thought param, HttpSession session) {
         R r = new R();
