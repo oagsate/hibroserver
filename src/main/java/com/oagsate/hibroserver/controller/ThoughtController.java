@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/thought")
@@ -26,7 +28,8 @@ public class ThoughtController {
 
     @GetMapping("/getByUid/{uid}")
     public R getByUid(@PathVariable int uid) {
-        return new R(0, thoughtService.getByUid(uid));
+        List<Map> ret = thoughtService.getByUid(uid);
+        return new R(0, ret);
     }
 
     @PostMapping

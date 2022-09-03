@@ -7,9 +7,10 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ThoughtDao extends BaseMapper<Thought> {
-    @Select("SELECT * FROM THOUGHT INNER JOIN USER ON THOUGHT.UID = USER.ID WHERE THOUGHT.UID = #{uid}")
-    List<Thought> getByUid(int uid);
+    @Select("select thought.id,thought.content,thought.uid,thought.create_time as createTime,user.name from thought inner join user on thought.uid = user.id where thought.uid = #{uid}")
+    List<Map> getByUid(int uid);
 }

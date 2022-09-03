@@ -5,7 +5,8 @@ import com.oagsate.hibroserver.domain.Thought;
 import com.oagsate.hibroserver.domain.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ThoughtService extends IService<Thought> {
-    List<Thought> getByUid(int uid);
+    List<Map> getByUid(int uid);
 }

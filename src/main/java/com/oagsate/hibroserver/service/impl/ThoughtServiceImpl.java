@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ThoughtServiceImpl extends ServiceImpl<ThoughtDao, Thought> implements ThoughtService {
@@ -18,7 +19,7 @@ public class ThoughtServiceImpl extends ServiceImpl<ThoughtDao, Thought> impleme
     private ThoughtDao thoughtDao;
 
     @Override
-    public List<Thought> getByUid(int uid) {
+    public List<Map> getByUid(int uid) {
         return thoughtDao.getByUid(uid);
     }
 }
