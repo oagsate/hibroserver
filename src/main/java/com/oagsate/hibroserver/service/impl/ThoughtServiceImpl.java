@@ -22,4 +22,9 @@ public class ThoughtServiceImpl extends ServiceImpl<ThoughtDao, Thought> impleme
     public List<Map> getByUid(int uid) {
         return thoughtDao.getByUid(uid);
     }
+
+    @Override
+    public List<Map> getAll() {
+        return thoughtDao.getAll();
+    }
 }

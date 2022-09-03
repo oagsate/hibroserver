@@ -9,4 +9,6 @@ import java.util.Map;
 
 public interface ThoughtService extends IService<Thought> {
     List<Map> getByUid(int uid);
+
+    List<Map> getAll();
 }

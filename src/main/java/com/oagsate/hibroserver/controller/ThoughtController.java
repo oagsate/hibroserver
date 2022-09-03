@@ -23,7 +23,8 @@ public class ThoughtController {
 
     @GetMapping
     public R getAll() {
-        return new R(0, thoughtService.list());
+
+        return new R(0, thoughtService.getAll());
     }
 
     @GetMapping("/getByUid/{uid}")
