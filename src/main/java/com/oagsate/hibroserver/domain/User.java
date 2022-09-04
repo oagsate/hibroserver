@@ -17,7 +17,7 @@ public class User {
     private int weight;
     private int estatus;
     private int education;
-    private int location;
+    private String location;
     private String description;
     private String email;
 }
