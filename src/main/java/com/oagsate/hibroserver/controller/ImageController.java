@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/image")
@@ -53,9 +54,9 @@ public class ImageController {
 
     @PostMapping
     public R upload(@RequestParam("image") MultipartFile multipartFile, HttpSession session) throws IOException {
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         User user = (User) session.getAttribute("user");
         String uploadDir = "images/" + user.getId();
+        String fileName = UUID.randomUUID().toString();
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         Image img = new Image();
         img.setName(fileName);
@@ -65,6 +66,7 @@ public class ImageController {
         userService.updateById(user);
         session.setAttribute("user", user);
         R r = new R();
+        r.setData(fileName);
         return r;
     }
 //
