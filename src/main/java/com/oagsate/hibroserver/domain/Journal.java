@@ -9,4 +9,5 @@ public class Journal {
     private String createTime;
     private String updateTime;
     private int uid;
+    private String brief;
 }

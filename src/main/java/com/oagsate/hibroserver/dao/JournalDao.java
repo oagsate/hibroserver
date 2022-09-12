@@ -11,9 +11,9 @@ import java.util.Map;
 
 @Mapper
 public interface JournalDao extends BaseMapper<Journal> {
-    @Select("select journal.id,journal.content,journal.uid,journal.create_time as createTime,journal.update_time as updateTime,user.name,user.avatar from journal inner join user on journal.uid = user.id where journal.uid = #{uid}")
+    @Select("select journal.id,journal.content,journal.uid,journal.brief,journal.create_time as createTime,journal.update_time as updateTime,user.name,user.avatar from journal inner join user on journal.uid = user.id where journal.uid = #{uid}")
     List<Map> getByUid(int uid);
 
-    @Select("select journal.id,journal.content,journal.uid,journal.create_time as createTime,journal.update_time as updateTime,user.name,user.avatar from journal inner join user on journal.uid = user.id")
+    @Select("select journal.id,journal.content,journal.uid,journal.brief,journal.create_time as createTime,journal.update_time as updateTime,user.name,user.avatar from journal inner join user on journal.uid = user.id")
     List<Map> getAll();
 }

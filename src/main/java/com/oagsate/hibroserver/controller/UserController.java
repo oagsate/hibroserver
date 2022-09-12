@@ -23,6 +23,14 @@ public class UserController {
         return new R(0, userService.list());
     }
 
+    @GetMapping(value = "/{uid}")
+    public R getByUid(@PathVariable("uid") int uid) {
+        User user = userService.getById(uid);
+        R r = new R();
+        r.setData(user);
+        return r;
+    }
+
     @PutMapping
     public R register(@RequestBody User param, HttpSession session) {
         R r = new R();

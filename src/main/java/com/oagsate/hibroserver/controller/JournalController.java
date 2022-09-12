@@ -33,6 +33,12 @@ public class JournalController {
         return new R(0, ret);
     }
 
+    @GetMapping("/{id}")
+    public R getById(@PathVariable int id) {
+        Journal j = journalService.getById(id);
+        return new R(0, j);
+    }
+
     @PostMapping
     public R register(@RequestBody Journal param, HttpSession session) {
         R r = new R();
