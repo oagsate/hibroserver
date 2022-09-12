@@ -35,7 +35,7 @@ public class JournalController {
 
     @GetMapping("/{id}")
     public R getById(@PathVariable int id) {
-        Journal j = journalService.getById(id);
+        Map j = journalService.getByJid(id);
         return new R(0, j);
     }
 

@@ -11,4 +11,6 @@ public interface JournalService extends IService<Journal> {
     List<Map> getByUid(int uid);
 
     List<Map> getAll();
+
+    Map getByJid(int id);
 }

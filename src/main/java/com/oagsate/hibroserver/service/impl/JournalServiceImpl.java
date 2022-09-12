@@ -27,4 +27,9 @@ public class JournalServiceImpl extends ServiceImpl<JournalDao, Journal> impleme
     public List<Map> getAll() {
         return journalDao.getAll();
     }
+
+    @Override
+    public Map getByJid(int id) {
+        return journalDao.getByJid(id);
+    }
 }
