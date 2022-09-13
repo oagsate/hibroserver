@@ -40,7 +40,7 @@ public class JournalController {
     }
 
     @PostMapping
-    public R register(@RequestBody Journal param, HttpSession session) {
+    public R save(@RequestBody Journal param, HttpSession session) {
         R r = new R();
         Date date = new Date();// 获取当前时间
         param.setCreateTime(date.toString());
@@ -48,6 +48,18 @@ public class JournalController {
         User user = (User) session.getAttribute("user");
         param.setUid(user.getId());
         journalService.save(param);
+        return r;
+    }
+
+    @PutMapping
+    public R update(@RequestBody Journal param, HttpSession session) {
+        R r = new R();
+        Journal j = journalService.getById(param.getId());
+        Date date = new Date();
+        j.setUpdateTime(date.toString());
+        j.setBrief(param.getBrief());
+        j.setContent(param.getContent());
+        journalService.updateById(j);
         return r;
     }
 
