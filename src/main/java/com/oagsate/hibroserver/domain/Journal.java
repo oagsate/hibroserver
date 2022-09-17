@@ -10,4 +10,5 @@ public class Journal {
     private String updateTime;
     private int uid;
     private String brief;
+    private String title;
 }
