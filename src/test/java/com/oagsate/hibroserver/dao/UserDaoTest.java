@@ -12,13 +12,7 @@ public class UserDaoTest {
     private UserDao userDao;
 
     @Test
-    void testSave(){
-        User user=new User();
-        user.setLocation(3);
-        user.setHeight(174);
-        user.setWeight(50);
-        user.setEmail("abc@sss.com");
-        user.setDescription("setetet");
-        userDao.insert(user);
+    void testSave() {
+
     }
 }
