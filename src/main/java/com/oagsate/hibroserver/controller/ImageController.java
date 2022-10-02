@@ -54,9 +54,10 @@ public class ImageController {
 
     @PostMapping
     public R upload(@RequestParam("image") MultipartFile multipartFile, HttpSession session) throws IOException {
+        String originalName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         User user = (User) session.getAttribute("user");
         String uploadDir = "images/" + user.getId();
-        String fileName = UUID.randomUUID().toString();
+        String fileName = UUID.randomUUID().toString() + "_" + originalName;
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         Image img = new Image();
         img.setName(fileName);

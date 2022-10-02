@@ -7,7 +7,12 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/hibrodb
       username: root
-      password: root
+      password: 721e81a9a1034e67
+  mvc:
+    static-path-pattern: /images/**
+  web:
+    resources:
+      static-locations: classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources,file:images
 
 mybatis-plus:
   global-config:
